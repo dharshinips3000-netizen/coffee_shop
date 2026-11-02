@@ -1,0 +1,1536 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Coffee House | Freshly Brewed Happiness</title>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Miniver&family=Poppins:wght@400;500;600;700;800&display=swap"
+          rel="stylesheet">
+
+    <!-- Bootstrap 5 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+          rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+    <style>
+
+    /* =========================================
+       GLOBAL STYLES
+    ========================================= */
+
+    :root {
+        --primary: #5e3b26;
+        --secondary: #e4a853;
+        --dark: #261c15;
+        --cream: #fff9eb;
+        --light: #ffffff;
+        --grey: #777;
+    }
+
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    html {
+        scroll-behavior: smooth;
+        scroll-padding-top: 80px;
+    }
+
+    body {
+        font-family: 'Poppins', sans-serif;
+        color: var(--dark);
+        background: var(--light);
+        overflow-x: hidden;
+    }
+
+    img {
+        max-width: 100%;
+        display: block;
+    }
+
+    a {
+        text-decoration: none;
+    }
+
+    ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    section {
+        padding: 100px 0;
+    }
+
+    .section-content {
+        width: 90%;
+        max-width: 1200px;
+        margin: auto;
+    }
+
+    .section-title {
+        text-align: center;
+        font-size: 36px;
+        font-weight: 700;
+        margin-bottom: 60px;
+        position: relative;
+        color: var(--dark);
+    }
+
+    .section-title::after {
+        content: "";
+        width: 80px;
+        height: 4px;
+        background: var(--secondary);
+        position: absolute;
+        bottom: -15px;
+        left: 50%;
+        transform: translateX(-50%);
+        border-radius: 20px;
+    }
+
+    .button {
+        display: inline-block;
+        padding: 13px 30px;
+        border-radius: 30px;
+        background: var(--secondary);
+        color: var(--dark);
+        font-weight: 600;
+        border: 2px solid var(--secondary);
+        transition: all 0.3s ease;
+    }
+
+    .button:hover {
+        background: transparent;
+        color: var(--secondary);
+        transform: translateY(-4px);
+    }
+
+
+    /* =========================================
+       NAVIGATION
+    ========================================= */
+
+    header {
+        background: var(--dark);
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+        box-shadow: 0 3px 15px rgba(0,0,0,0.15);
+    }
+
+    .navbar {
+        padding: 15px 0;
+    }
+
+    .navbar-brand {
+        color: white;
+        font-size: 26px;
+        font-weight: 700;
+    }
+
+    .navbar-brand:hover {
+        color: var(--secondary);
+    }
+
+    .navbar-brand i {
+        color: var(--secondary);
+        margin-right: 8px;
+    }
+
+    .navbar-nav {
+        gap: 10px;
+    }
+
+    .nav-link {
+        color: white !important;
+        font-size: 14px;
+        font-weight: 500;
+        padding: 10px 15px !important;
+        border-radius: 25px;
+        transition: 0.3s;
+    }
+
+    .nav-link:hover,
+    .nav-link.active {
+        background: var(--secondary);
+        color: var(--dark) !important;
+    }
+
+    .navbar-toggler {
+        border: 1px solid var(--secondary);
+    }
+
+    .navbar-toggler-icon {
+        filter: invert(1);
+    }
+
+
+    /* =========================================
+       HERO SECTION
+    ========================================= */
+
+    .hero-section {
+        min-height: 650px;
+        display: flex;
+        align-items: center;
+        background: var(--dark);
+        color: white;
+        padding: 80px 0;
+    }
+
+    .hero-content {
+        max-width: 1200px;
+        width: 90%;
+        margin: auto;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        align-items: center;
+        justify-content: center;
+        gap: 50px;
+    }
+
+    .hero-text {
+        text-align: left;
+        animation: fadeInLeft 1s ease;
+    }
+
+    .hero-title {
+        font-family: 'Miniver', cursive;
+        color: var(--secondary);
+        font-size: 48px;
+        margin-bottom: 15px;
+    }
+
+    .hero-subtitle {
+        font-size: 35px;
+        line-height: 1.4;
+        font-weight: 700;
+        margin-bottom: 20px;
+    }
+
+    .highlight-text {
+        color: var(--secondary);
+    }
+
+    .hero-description {
+        color: #ddd;
+        line-height: 1.9;
+        font-size: 15px;
+        max-width: 500px;
+        margin-bottom: 30px;
+    }
+
+    .hero-buttons {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 15px;
+    }
+
+    .contact-us {
+        background: transparent;
+        color: white;
+        border-color: white;
+    }
+
+    .contact-us:hover {
+        background: var(--secondary);
+        color: var(--dark);
+        border-color: var(--secondary);
+    }
+
+    .hero-image-wrapper {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .hero-image {
+        width: 100%;
+        max-width: 500px;
+        object-fit: contain;
+        animation: floatImage 4s ease-in-out infinite;
+    }
+
+
+    /* =========================================
+       ABOUT SECTION
+    ========================================= */
+
+    .about-section {
+        background: var(--cream);
+    }
+
+    .about-content {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        align-items: center;
+        gap: 70px;
+    }
+
+    .about-image-wrapper {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .about-image {
+        width: 100%;
+        max-width: 420px;
+        height: 420px;
+        object-fit: cover;
+        border-radius: 50%;
+        border: 8px solid white;
+        box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+    }
+
+    .about-details {
+        text-align: center;
+    }
+
+    .about-details .section-title {
+        margin-bottom: 45px;
+    }
+
+    .about-details .text {
+        font-size: 15px;
+        line-height: 2;
+        color: #666;
+        margin-bottom: 25px;
+    }
+
+    .social-link-list {
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+        margin-top: 25px;
+    }
+
+    .social-link {
+        color: var(--primary);
+        font-size: 22px;
+        transition: 0.3s;
+    }
+
+    .social-link:hover {
+        color: var(--secondary);
+        transform: translateY(-5px) scale(1.2);
+    }
+
+
+    /* =========================================
+       MENU SECTION
+    ========================================= */
+
+    .menu-section {
+        background: var(--dark);
+        color: white;
+    }
+
+    .menu-section .section-title {
+        color: white;
+    }
+
+    .menu-list {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 35px;
+    }
+
+    .menu-item {
+        text-align: center;
+        padding: 35px 25px;
+        border-radius: 20px;
+        background: #34271f;
+        border: 1px solid rgba(255,255,255,0.05);
+        transition: 0.4s ease;
+    }
+
+    .menu-item:hover {
+        background: #453326;
+        transform: translateY(-10px);
+        box-shadow: 0 15px 30px rgba(0,0,0,0.3);
+    }
+
+    .menu-image {
+        width: 160px;
+        height: 160px;
+        object-fit: contain;
+        margin: 0 auto 25px;
+        transition: transform 0.4s ease;
+    }
+
+    .menu-item:hover .menu-image {
+        transform: scale(1.15) rotate(-3deg);
+    }
+
+    .menu-item .name {
+        font-size: 21px;
+        font-weight: 600;
+        margin-bottom: 15px;
+        color: var(--secondary);
+    }
+
+    .menu-item .text {
+        color: #ddd;
+        font-size: 14px;
+        line-height: 1.8;
+    }
+
+
+    /* =========================================
+       TESTIMONIALS
+    ========================================= */
+
+    .testimonials-section {
+        background: var(--cream);
+    }
+
+    .testimonial-list {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 25px;
+    }
+
+    .testimonial-item {
+        text-align: center;
+        padding: 30px 20px;
+        background: white;
+        border-radius: 20px;
+        box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+        transition: 0.4s;
+    }
+
+    .testimonial-item:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 15px 30px rgba(94,59,38,0.15);
+    }
+
+    .user-image {
+        width: 100px;
+        height: 100px;
+        object-fit: cover;
+        border-radius: 50%;
+        margin: 0 auto 20px;
+        border: 4px solid var(--secondary);
+        transition: transform 0.4s;
+    }
+
+    .testimonial-item:hover .user-image {
+        transform: scale(1.12);
+    }
+
+    .testimonial-item .name {
+        font-size: 18px;
+        font-weight: 600;
+        margin-bottom: 15px;
+    }
+
+    .feedback {
+        font-size: 13px;
+        color: #777;
+        line-height: 1.8;
+        margin-bottom: 15px;
+    }
+
+    .stars {
+        color: #e4a853;
+        letter-spacing: 3px;
+    }
+
+
+    /* =========================================
+       GALLERY
+    ========================================= */
+
+    .gallery-section {
+        background: white;
+    }
+
+    .gallery-list {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 25px;
+    }
+
+    .gallery-item {
+        overflow: hidden;
+        border-radius: 15px;
+        position: relative;
+        box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+    }
+
+    .gallery-image {
+        width: 100%;
+        height: 280px;
+        object-fit: cover;
+        transition: transform 0.5s ease;
+    }
+
+    .gallery-item:hover .gallery-image {
+        transform: scale(1.12);
+        filter: brightness(0.9);
+    }
+
+
+    /* =========================================
+       CONTACT
+    ========================================= */
+
+    .contact-section {
+        background: var(--cream);
+    }
+
+    .contact-content {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 60px;
+        align-items: start;
+    }
+
+    .contact-details {
+        text-align: left;
+    }
+
+    .contact-details p {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        margin-bottom: 25px;
+        font-size: 15px;
+        color: #555;
+    }
+
+    .contact-details i {
+        color: var(--primary);
+        font-size: 20px;
+        width: 25px;
+    }
+
+    .contact-form {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+        width: 100%;
+        padding: 15px 20px;
+        border: 1px solid #ddd;
+        border-radius: 10px;
+        font-family: 'Poppins', sans-serif;
+        font-size: 14px;
+        outline: none;
+        background: white;
+        transition: 0.3s;
+    }
+
+    .contact-form input:focus,
+    .contact-form textarea:focus {
+        border-color: var(--secondary);
+        box-shadow: 0 0 0 3px rgba(228,168,83,0.15);
+    }
+
+    .contact-form textarea {
+        resize: vertical;
+    }
+
+    .submit-button {
+        cursor: pointer;
+        width: fit-content;
+    }
+
+
+    /* =========================================
+       FOOTER
+    ========================================= */
+
+    .footer-section {
+        background: var(--dark);
+        color: white;
+        padding: 30px 0;
+    }
+
+    .footer-content {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 20px;
+    }
+
+    .copyright-text {
+        font-size: 13px;
+        color: #ccc;
+        margin: 0;
+    }
+
+    .footer-section .social-link {
+        color: white;
+    }
+
+    .footer-section .social-link:hover {
+        color: var(--secondary);
+    }
+
+
+    /* =========================================
+       SCROLL ANIMATIONS
+    ========================================= */
+
+    .reveal {
+        opacity: 0;
+        transform: translateY(40px);
+        transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+
+    .reveal.active {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    .reveal-left {
+        opacity: 0;
+        transform: translateX(-50px);
+        transition: all 0.8s ease;
+    }
+
+    .reveal-left.active {
+        opacity: 1;
+        transform: translateX(0);
+    }
+
+    .reveal-right {
+        opacity: 0;
+        transform: translateX(50px);
+        transition: all 0.8s ease;
+    }
+
+    .reveal-right.active {
+        opacity: 1;
+        transform: translateX(0);
+    }
+
+    @keyframes floatImage {
+        0%, 100% {
+            transform: translateY(0);
+        }
+
+        50% {
+            transform: translateY(-15px);
+        }
+    }
+
+    @keyframes fadeInLeft {
+        from {
+            opacity: 0;
+            transform: translateX(-40px);
+        }
+
+        to {
+            opacity: 1;
+            transform: translateX(0);
+        }
+    }
+
+
+    /* =========================================
+       RESPONSIVE DESIGN
+    ========================================= */
+
+    @media (max-width: 991px) {
+
+        section {
+            padding: 75px 0;
+        }
+
+        .hero-content {
+            gap: 30px;
+        }
+
+        .hero-title {
+            font-size: 38px;
+        }
+
+        .hero-subtitle {
+            font-size: 28px;
+        }
+
+        .menu-list {
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        .testimonial-list {
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        .gallery-list {
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        .about-content {
+            gap: 35px;
+        }
+    }
+
+    @media (max-width: 767px) {
+
+        section {
+            padding: 60px 0;
+        }
+
+        .section-title {
+            font-size: 28px;
+            margin-bottom: 45px;
+        }
+
+        .hero-section {
+            padding: 60px 0;
+        }
+
+        .hero-content {
+            grid-template-columns: 1fr;
+            text-align: center;
+        }
+
+        .hero-text {
+            text-align: center;
+        }
+
+        .hero-title {
+            font-size: 35px;
+        }
+
+        .hero-subtitle {
+            font-size: 27px;
+        }
+
+        .hero-description {
+            margin: 0 auto 25px;
+        }
+
+        .hero-buttons {
+            justify-content: center;
+        }
+
+        .hero-image {
+            max-width: 320px;
+        }
+
+        .about-content {
+            grid-template-columns: 1fr;
+            gap: 35px;
+        }
+
+        .about-image {
+            width: 280px;
+            height: 280px;
+        }
+
+        .menu-list {
+            grid-template-columns: 1fr;
+        }
+
+        .testimonial-list {
+            grid-template-columns: 1fr;
+        }
+
+        .gallery-list {
+            grid-template-columns: 1fr;
+        }
+
+        .gallery-image {
+            height: 250px;
+        }
+
+        .contact-content {
+            grid-template-columns: 1fr;
+            gap: 35px;
+        }
+
+        .footer-content {
+            flex-direction: column;
+            text-align: center;
+        }
+
+        .navbar-nav {
+            padding: 15px 0;
+        }
+
+        .nav-link {
+            text-align: center;
+        }
+    }
+
+
+    /* Reduce animations for accessibility */
+
+    @media (prefers-reduced-motion: reduce) {
+        *,
+        *::before,
+        *::after {
+            animation-duration: 0.01ms !important;
+            transition-duration: 0.01ms !important;
+            scroll-behavior: auto !important;
+        }
+    }
+
+    </style>
+</head>
+
+<body>
+
+<!-- =========================================
+     HEADER / NAVBAR
+========================================= -->
+
+<header>
+
+<nav class="navbar navbar-expand-lg">
+    <div class="container">
+
+        <a class="navbar-brand" href="#home">
+            <i class="fa-solid fa-mug-hot"></i>
+            Coffee House
+        </a>
+
+        <button class="navbar-toggler" type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#navbarMenu"
+                aria-controls="navbarMenu"
+                aria-expanded="false"
+                aria-label="Toggle navigation">
+
+            <span class="navbar-toggler-icon"></span>
+
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarMenu">
+
+            <ul class="navbar-nav ms-auto">
+
+                <li class="nav-item">
+                    <a class="nav-link active" href="#home">Home</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="#about">About</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="#menu">Menu</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="#testimonials">Testimonials</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="#gallery">Gallery</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="#contact">Contact</a>
+                </li>
+
+            </ul>
+
+        </div>
+
+    </div>
+</nav>
+
+</header>
+
+
+<main>
+
+<!-- =========================================
+     HOME / HERO
+========================================= -->
+
+<section id="home" class="hero-section">
+
+    <div class="hero-content">
+
+        <div class="hero-text">
+
+            <h2 class="hero-title">Best Coffee</h2>
+
+            <h3 class="hero-subtitle">
+                Make Your Day Great With Our Special
+                <span class="highlight-text">Coffee!</span>
+            </h3>
+
+            <p class="hero-description">
+                Experience the rich aroma and perfectly roasted
+                coffee beans crafted by our expert baristas.
+                Start your morning with happiness.
+            </p>
+
+            <div class="hero-buttons">
+
+                <a href="#menu" class="button">
+                    Order Now
+                </a>
+
+                <a href="#contact" class="button contact-us">
+                    Book a Table
+                </a>
+
+            </div>
+
+        </div>
+
+        <div class="hero-image-wrapper">
+
+            <img src="./images/coffee-hero-section.png"
+                 alt="Freshly brewed special coffee"
+                 class="hero-image">
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================
+     ABOUT
+========================================= -->
+
+<section id="about" class="about-section">
+
+    <div class="section-content">
+
+        <div class="about-content">
+
+            <div class="about-image-wrapper reveal-left">
+
+                <img src="./images/about-image.jpg"
+                     alt="Coffee House interior"
+                     class="about-image">
+
+            </div>
+
+            <div class="about-details reveal-right">
+
+                <h2 class="section-title">About Us</h2>
+
+                <p class="text">
+                    At Coffee House in Chennai and Madurai,
+                    we pride ourselves on serving freshly brewed
+                    coffee made with love and passion.
+                </p>
+
+                <p class="text">
+                    Our cozy atmosphere, friendly baristas,
+                    and delicious beverages make every visit
+                    special. Come and enjoy a perfect cup
+                    of coffee with us.
+                </p>
+
+                <div class="social-link-list">
+
+                    <a href="#" class="social-link"
+                       aria-label="Facebook">
+                        <i class="fa-brands fa-facebook"></i>
+                    </a>
+
+                    <a href="#" class="social-link"
+                       aria-label="Instagram">
+                        <i class="fa-brands fa-instagram"></i>
+                    </a>
+
+                    <a href="#" class="social-link"
+                       aria-label="YouTube">
+                        <i class="fa-brands fa-youtube"></i>
+                    </a>
+
+                    <a href="#" class="social-link"
+                       aria-label="WhatsApp">
+                        <i class="fa-brands fa-whatsapp"></i>
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================
+     MENU
+========================================= -->
+
+<section id="menu" class="menu-section">
+
+    <div class="section-content">
+
+        <h2 class="section-title">Our Menu</h2>
+
+        <ul class="menu-list">
+
+            <li class="menu-item reveal">
+
+                <img src="./images/hot-beverages.png"
+                     alt="Hot coffee"
+                     class="menu-image">
+
+                <h3 class="name">Hot Beverages</h3>
+
+                <p class="text">
+                    A wide range of steaming hot coffee
+                    to make you feel fresh and energetic.
+                </p>
+
+                <p class="text">
+                    <strong>₹99 – ₹249</strong>
+                </p>
+
+            </li>
+
+
+            <li class="menu-item reveal">
+
+                <img src="./images/cold-beverages.png"
+                     alt="Cold coffee"
+                     class="menu-image">
+
+                <h3 class="name">Cold Beverages</h3>
+
+                <p class="text">
+                    Refreshing cold coffee and chilled
+                    beverages for every mood.
+                </p>
+
+                <p class="text">
+                    <strong>₹129 – ₹299</strong>
+                </p>
+
+            </li>
+
+
+            <li class="menu-item reveal">
+
+                <img src="./images/desserts.png"
+                     alt="Coffee house desserts"
+                     class="menu-image">
+
+                <h3 class="name">Desserts</h3>
+
+                <p class="text">
+                    Delicious desserts to satisfy
+                    your sweet cravings.
+                </p>
+
+                <p class="text">
+                    <strong>₹149 – ₹349</strong>
+                </p>
+
+            </li>
+
+
+            <li class="menu-item reveal">
+
+                <img src="./images/burger-frenchfries.png"
+                     alt="Burger and French fries"
+                     class="menu-image">
+
+                <h3 class="name">Burger & French Fries</h3>
+
+                <p class="text">
+                    Crispy French fries and tasty burgers
+                    to make your appetite dance.
+                </p>
+
+                <p class="text">
+                    <strong>₹179 – ₹399</strong>
+                </p>
+
+            </li>
+
+
+            <li class="menu-item reveal">
+
+                <img src="./images/refreshment.png"
+                     alt="Refreshing drinks"
+                     class="menu-image">
+
+                <h3 class="name">Refreshments</h3>
+
+                <p class="text">
+                    Fresh and refreshing drinks
+                    for every occasion.
+                </p>
+
+                <p class="text">
+                    <strong>₹99 – ₹249</strong>
+                </p>
+
+            </li>
+
+
+            <li class="menu-item reveal">
+
+                <img src="./images/special-combo.png"
+                     alt="Special coffee combo"
+                     class="menu-image">
+
+                <h3 class="name">Special Combo</h3>
+
+                <p class="text">
+                    Enjoy our delicious food and beverage
+                    combinations.
+                </p>
+
+                <p class="text">
+                    <strong>₹299 – ₹499</strong>
+                </p>
+
+            </li>
+
+        </ul>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================
+     TESTIMONIALS
+========================================= -->
+
+<section id="testimonials" class="testimonials-section">
+
+    <div class="section-content">
+
+        <h2 class="section-title">What Our Customers Say</h2>
+
+        <ul class="testimonial-list">
+
+            <li class="testimonial-item reveal">
+
+                <img src="./images/user-1.jpg"
+                     alt="Customer Sarah"
+                     class="user-image">
+
+                <h3 class="name">Sarah</h3>
+
+                <p class="feedback">
+                    "Amazing coffee and a wonderful atmosphere.
+                    I love visiting this place!"
+                </p>
+
+                <div class="stars">★★★★★</div>
+
+            </li>
+
+
+            <li class="testimonial-item reveal">
+
+                <img src="./images/user-2.jpg"
+                     alt="Customer John"
+                     class="user-image">
+
+                <h3 class="name">John</h3>
+
+                <p class="feedback">
+                    "The coffee tastes fantastic and
+                    the service is always friendly."
+                </p>
+
+                <div class="stars">★★★★★</div>
+
+            </li>
+
+
+            <li class="testimonial-item reveal">
+
+                <img src="./images/user-3.jpg"
+                     alt="Customer Emily"
+                     class="user-image">
+
+                <h3 class="name">Emily</h3>
+
+                <p class="feedback">
+                    "A perfect place to relax, enjoy coffee
+                    and spend time with friends."
+                </p>
+
+                <div class="stars">★★★★★</div>
+
+            </li>
+
+
+            <li class="testimonial-item reveal">
+
+                <img src="./images/user-4.jpg"
+                     alt="Customer David"
+                     class="user-image">
+
+                <h3 class="name">David</h3>
+
+                <p class="feedback">
+                    "Lovely ambience and delicious desserts.
+                    Highly recommended!"
+                </p>
+
+                <div class="stars">★★★★★</div>
+
+            </li>
+
+        </ul>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================
+     GALLERY
+========================================= -->
+
+<section id="gallery" class="gallery-section">
+
+    <div class="section-content">
+
+        <h2 class="section-title">Our Gallery</h2>
+
+        <ul class="gallery-list">
+
+            <li class="gallery-item reveal">
+                <img src="./images/gallery-1.jpg"
+                     alt="Coffee House gallery"
+                     class="gallery-image">
+            </li>
+
+            <li class="gallery-item reveal">
+                <img src="./images/gallery-2.jpg"
+                     alt="Coffee preparation"
+                     class="gallery-image">
+            </li>
+
+            <li class="gallery-item reveal">
+                <img src="./images/gallery-3.jpg"
+                     alt="Coffee and desserts"
+                     class="gallery-image">
+            </li>
+
+            <li class="gallery-item reveal">
+                <img src="./images/gallery-4.jpg"
+                     alt="Coffee shop interior"
+                     class="gallery-image">
+            </li>
+
+            <li class="gallery-item reveal">
+                <img src="./images/gallery-5.jpg"
+                     alt="Freshly brewed coffee"
+                     class="gallery-image">
+            </li>
+
+            <li class="gallery-item reveal">
+                <img src="./images/gallery-6.jpg"
+                     alt="Coffee House experience"
+                     class="gallery-image">
+            </li>
+
+        </ul>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================
+     CONTACT
+========================================= -->
+
+<section id="contact" class="contact-section">
+
+    <div class="section-content">
+
+        <h2 class="section-title">Contact Us</h2>
+
+        <div class="contact-content">
+
+            <div class="contact-details reveal-left">
+
+                <p>
+                    <i class="fa-solid fa-location-dot"></i>
+                    Chennai, Tamil Nadu, India
+                </p>
+
+                <p>
+                    <i class="fa-solid fa-envelope"></i>
+                    coffeehouse@example.com
+                </p>
+
+                <p>
+                    <i class="fa-solid fa-phone"></i>
+                    +91 98765 43210
+                </p>
+
+                <p>
+                    <i class="fa-solid fa-clock"></i>
+                    Monday - Sunday: 9 AM - 10 PM
+                </p>
+
+            </div>
+
+
+            <form class="contact-form reveal-right">
+
+                <input type="text"
+                       name="name"
+                       placeholder="Your Name"
+                       aria-label="Your Name"
+                       required>
+
+                <input type="email"
+                       name="email"
+                       placeholder="Your Email"
+                       aria-label="Your Email"
+                       required>
+
+                <textarea name="message"
+                          placeholder="Your Message"
+                          aria-label="Your Message"
+                          rows="5"
+                          required></textarea>
+
+                <button type="submit"
+                        class="button submit-button">
+                    Send Message
+                </button>
+
+            </form>
+
+        </div>
+
+    </div>
+
+</section>
+
+</main>
+
+
+<!-- =========================================
+     FOOTER
+========================================= -->
+
+<footer class="footer-section">
+
+    <div class="section-content">
+
+        <div class="footer-content">
+
+            <p class="copyright-text">
+                © 2026 Coffee House. All Rights Reserved.
+            </p>
+
+            <div class="social-link-list">
+
+                <a href="#" class="social-link"
+                   aria-label="Facebook">
+                    <i class="fa-brands fa-facebook"></i>
+                </a>
+
+                <a href="#" class="social-link"
+                   aria-label="Instagram">
+                    <i class="fa-brands fa-instagram"></i>
+                </a>
+
+                <a href="#" class="social-link"
+                   aria-label="YouTube">
+                    <i class="fa-brands fa-youtube"></i>
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</footer>
+
+
+<!-- =========================================
+     BOOTSTRAP JAVASCRIPT
+========================================= -->
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+
+<!-- =========================================
+     CUSTOM JAVASCRIPT + JQUERY
+========================================= -->
+
+<script>
+
+$(document).ready(function() {
+
+    /* -------------------------------------
+       1. SCROLL REVEAL ANIMATION
+    ------------------------------------- */
+
+    function revealElements() {
+
+        $(".reveal, .reveal-left, .reveal-right").each(function() {
+
+            let elementTop = $(this).offset().top;
+
+            let windowBottom = $(window).scrollTop() + $(window).height();
+
+            if (windowBottom > elementTop + 50) {
+
+                $(this).addClass("active");
+
+            }
+
+        });
+
+    }
+
+    $(window).on("scroll", revealElements);
+
+    revealElements();
+
+
+    /* -------------------------------------
+       2. IMAGE POP ANIMATION ON HOVER
+    ------------------------------------- */
+
+    $(".menu-image, .gallery-image, .user-image, .about-image").hover(
+
+        function() {
+
+            $(this).css({
+                "transform": "scale(1.12)",
+                "transition": "transform 0.4s ease"
+            });
+
+        },
+
+        function() {
+
+            $(this).css({
+                "transform": "",
+                "transition": "transform 0.4s ease"
+            });
+
+        }
+
+    );
+
+
+    /* -------------------------------------
+       3. NAVIGATION ACTIVE LINK
+    ------------------------------------- */
+
+    $(".nav-link").on("click", function() {
+
+        $(".nav-link").removeClass("active");
+
+        $(this).addClass("active");
+
+    });
+
+
+    /* -------------------------------------
+       4. CLOSE MOBILE MENU AFTER CLICK
+    ------------------------------------- */
+
+    $(".nav-link").on("click", function() {
+
+        $(".navbar-collapse").collapse("hide");
+
+    });
+
+
+    /* -------------------------------------
+       5. CONTACT FORM
+    ------------------------------------- */
+
+    $(".contact-form").on("submit", function(event) {
+
+        event.preventDefault();
+
+        let name = $("input[name='name']").val();
+
+        alert(
+            "Thank you, " + name +
+            "! Your message has been received."
+        );
+
+        this.reset();
+
+    });
+
+
+    /* -------------------------------------
+       6. BUTTON HOVER ANIMATION
+    ------------------------------------- */
+
+    $(".button").hover(
+
+        function() {
+
+            $(this).css("transform", "translateY(-4px)");
+
+        },
+
+        function() {
+
+            $(this).css("transform", "");
+
+        }
+
+    );
+
+
+    /* -------------------------------------
+       7. SMOOTH SCROLL
+    ------------------------------------- */
+
+    $('a[href^="#"]').on("click", function(event) {
+
+        let target = $(this.getAttribute("href"));
+
+        if (target.length) {
+
+            event.preventDefault();
+
+            $("html, body").animate({
+
+                scrollTop: target.offset().top - 70
+
+            }, 700);
+
+        }
+
+    });
+
+});
+
+</script>
+
+</body>
+</html>
